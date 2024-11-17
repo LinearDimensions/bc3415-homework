@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Headlines</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h3>Homework</h3>
+        <a href="/">Week 2</a>
+        <a href="/week8">Week 8</a>
+        <a href="/week9">Week 9</a>
+    </div>
+
+    <!-- Main content -->
+    <div class="content">
+        <h1>Get a Financial Headline</h1>
+        <button onclick="fetchHeadline()">Show Headline</button>
+        <p id="headline"></p>
+        <h3>Why is prediction important across diverse fields, and how does it influence decision-making processes?</h3>
+        <a>Predictions help to forecast future events and assists decision making.</a>
+        <br>
+
+        <h3>What methods are commonly used to evaluate the effectiveness of prediction models?</h3>
+        <a>Main metrics to evaluate effectiveness are accuracy, sensitivity, specificity. Other models such as Neural Network have metrics such as Mean Squared Error and Loss.</a>
+        <br>
+
+        <h3>What role do emerging technologies like artificial intelligence and deep learning play in advancing prediction capabilities and applications?</h3>
+        <a>Emerging technologies provide new ways to understanding new data. In the information age today, data exists as different types (eg. images, audio, texts) which requires new techniques to process and model.</a>
+        <br>
+        
+
+
+
+    </div>
+
+    <script>
+        function fetchHeadline() {
+            fetch('/headline')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('headline').innerText = data.headline;
+                })
+                .catch(error => console.error('Error fetching headline:', error));
+        }
+    </script>
+</body>
+</html>
