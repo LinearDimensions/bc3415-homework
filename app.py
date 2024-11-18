@@ -3,7 +3,6 @@ import random
 import yfinance as yf
 
 app = Flask(__name__)
-app.run(host='0.0.0.0')
 
 # Sample financial headlines
 headlines = [x['title'] for x in yf.Ticker('SPY').news]
